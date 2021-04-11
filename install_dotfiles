@@ -1,0 +1,35 @@
+#!/bin/bash
+
+function randomString
+{
+    cat /dev/urandom | tr -dc 'a-z0-9' | fold -w $1 | head -n 1
+}
+
+function fileList
+{
+    cat << FILELIST
+.bashrc
+.bash_profile
+.inputrc
+.tmux.conf
+.vim
+.xinitrc
+FILELIST
+}
+
+
+targetDir="$(dirname $(readlink -f "$0"))"
+oldDotFilesDir="$HOME/oldDotFiles_$(date +%Y%m%d%H%M%S)_$(randomString 3)"
+
+cd "$HOME"
+
+while read fileName; do
+
+    if [ -e "$fileName" ]; then
+        mkdir -p "$oldDotFilesDir"
+        mv "$fileName" "$oldDotFilesDir"
+    fi
+
+    ln -s "$targetDir/$fileName" "$fileName"
+
+done < <(fileList)
