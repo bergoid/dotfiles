@@ -122,6 +122,9 @@ function! FuzzyFileSelect() abort
         " Add selected_files to contents of quickfix
         caddexpr selected_files
 
+        " Jump to current error (needed when QF was empty before)
+        cc
+
     else
 
         " Reset contents of quickfix with selected_files
