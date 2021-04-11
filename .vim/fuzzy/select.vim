@@ -63,15 +63,33 @@ endfunction
 " Show quickfix window
 function! ShowQuickfix() abort
 
+    " Store path to current file
+    let l:openedfile=expand('%:p')
+
     " Show QF window
     copen
 
     " Hide QF statusline
     set laststatus=0
 
-    " Only jump to (current) error with non-empty QF
-    if len(getqflist()) > 0
+    if empty(getqflist())
+
+        if !empty(l:openedfile)
+
+            " Empty QF but opened file? -> Add the file to the QF.
+            set errorformat=%f
+            let l:openedfilelist=[l:openedfile]
+            caddexpr l:openedfilelist
+            " QF is non-empty now. Jump to current error.
+            cc
+
+        endif
+
+    else
+
+        " Only jump to (current) error with non-empty QF
         cc
+
     endif
 
 endfunction
@@ -111,7 +129,7 @@ function! FuzzyFileSelect() abort
 
     call delete(output_file)
 
-    if !len(selected_files)
+    if empty(selected_files)
         return
     endif
 
