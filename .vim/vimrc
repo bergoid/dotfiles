@@ -157,16 +157,59 @@ vnoremap <leader>W *N<esc>:let @/.='\C'<cr>
 " <leader>r in visual mode: find & replace current selection
 vnoremap <leader>r "sy:.,$s/<C-R>=substitute(@s,"\n",'\\n','g')<CR>/
 
-" <leader>cc and <leader>uc : (un)comment blocks of code.
-autocmd FileType c,cpp,java,scala,javascript,typescript let b:comment_leader = '//'
-autocmd FileType sh,ruby,python   let b:comment_leader = '#'
-autocmd FileType conf,fstab       let b:comment_leader = '#'
-autocmd FileType tex              let b:comment_leader = '%'
-autocmd FileType mail             let b:comment_leader = '>'
-autocmd FileType vim              let b:comment_leader = '"'
-autocmd FileType make             let b:comment_leader = '#'
-noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+" Comment/uncomment
+let s:comment_map = {
+    \   "c": '//',
+    \   "cpp": '//',
+    \   "go": '//',
+    \   "java": '//',
+    \   "javascript": '//',
+    \   "lua": '--',
+    \   "scala": '//',
+    \   "php": '//',
+    \   "python": '#',
+    \   "ruby": '#',
+    \   "rust": '//',
+    \   "sh": '#',
+    \   "desktop": '#',
+    \   "fstab": '#',
+    \   "conf": '#',
+    \   "profile": '#',
+    \   "bashrc": '#',
+    \   "bash_profile": '#',
+    \   "mail": '>',
+    \   "eml": '>',
+    \   "bat": 'REM',
+    \   "ahk": ';',
+    \   "vim": '"',
+    \   "tex": '%',
+    \ }
+
+function! Comment(on)
+
+    if has_key(s:comment_map, &filetype)
+
+        let l:comment_leader = escape(s:comment_map[&filetype], '\/')
+
+        if a:on
+            execute 'silent! s/^/' . l:comment_leader . ' /'
+            execute 'silent! s/^' . l:comment_leader . '\s*$/' . l:comment_leader . '/'
+        else
+            execute 'silent! s/\v\s*\zs' . l:comment_leader . '\s?\ze//'
+        endif
+
+    else
+        echohl ErrorMsg
+        echomsg "No comment leader found for filetype: " . &filetype
+        echohl None
+    endif
+
+endfunction
+
+nnoremap <Leader>cc :call Comment(1)<CR>
+vnoremap <Leader>cc :call Comment(1)<CR>
+nnoremap <Leader>cu :call Comment(0)<CR>
+vnoremap <Leader>cu :call Comment(0)<CR>
 
 " delete without yanking
 nnoremap <leader>d "_d
