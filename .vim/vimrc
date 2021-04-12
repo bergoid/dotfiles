@@ -164,6 +164,7 @@ let s:comment_map = {
     \   "go": '//',
     \   "java": '//',
     \   "javascript": '//',
+    \   "typescript": '//',
     \   "lua": '--',
     \   "scala": '//',
     \   "php": '//',
@@ -232,6 +233,9 @@ nnoremap <leader>- yyp<S-v>r-
 
 " <leader>P in normal mode: set paste mode and enter insert mode
 nnoremap <leader>P :set paste<CR>i
+
+" Replace file contents with clipboard contents and adjust formatting
+nnoremap <leader>x gg"_dG:set paste<CR>p<Esc><Esc>ggVG=
 
 " Unset paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
