@@ -29,7 +29,7 @@ call Mapam('<S-F6>', ':update<CR>:cp<CR>zz')
 "call Mapam('<F7>', ':make -k<CR>:cw<CR>')
 
 " F11 : Clear highlight after search
-call Mapam('<F11>', ':noh<CR>')
+call Mapam('<F11>', ':if (&hls && v:hlsearch) \| nohls \| else \| set hls \| endif<CR>')
 
 " Alt-F11 : Delete trailing whitespace on all lines
 " and replace all tabs with 4 spaces
