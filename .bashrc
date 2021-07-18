@@ -50,8 +50,18 @@ test -f "$HOME/.localConfig" && . $_
 test -z "$PS1" && return
 
 # Replace the current process with a tmux session
-if [ -z "$TMUX" -a "$LOCAL_TMUX_AUTOSTART" = "true" -a ! -e /tmp/notmux -a -n "$DISPLAY" ]; then
-#if [ -n "$LOCAL_TMUX_AUTOSTART" -a ! -e /tmp/notmux -a -n "$DISPLAY" -a -z "$TMUX" ]; then
+# if not already in a tmux session
+if [ -z "$TMUX" ] && \
+# and autostart of tmux is enabled
+   [ "$LOCAL_TMUX_AUTOSTART" = "true" ] && \
+# and autostart is not temporarily disabled
+   [ ! -e /tmp/notmux ] && \
+# and we are in a graphical GUI
+   [ -n "$DISPLAY" ] && \
+# and we are not root
+   [ "$EUID" -ne 0 ]
+# then start tmux
+then
     tmuxScript="$HOME/tools/dotfiles/tmux2panes"
     [ -x "$tmuxScript" ] && exec "$tmuxScript"
 fi
