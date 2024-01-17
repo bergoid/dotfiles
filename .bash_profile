@@ -2,12 +2,8 @@
 # ~/.bash_profile
 #
 
-
-# Source .bashrc
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-
 # If on virtual terminal #1
-if [ "$XDG_VTNR" = "1" ]; then
+if [ "$(tty)" = "/dev/tty1" ]; then
 
     # If no X yet
     if [ -z "$DISPLAY" ]; then
@@ -16,5 +12,10 @@ if [ "$XDG_VTNR" = "1" ]; then
         startx
 
     fi
+
+else
+
+    # Source .bashrc
+    [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 fi

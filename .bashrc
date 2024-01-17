@@ -1,28 +1,10 @@
 # ~/.bashrc
 
-# Aliases
-alias ls='ls --color=auto'
+# Aliases for non-interactive shells
 alias xr="xargs -r -L 1"
 alias xri="xargs -r -I '{}'" # '-I' Implies '-L 1'
-alias vi="vim"
-alias vimin="echo -n | vipe"
-alias s="git status"
-alias unstage="git reset -- ."
-
-function uncommit
-{
-    if [ "$(git rev-list --count origin/$(git branch --show-current)..HEAD)" -gt 0 ]; then
-        git reset HEAD~1 --soft
-    else
-        echo ERROR: there are no unpushed commits >&2
-        false
-    fi
-}
-export -f uncommit
 
 # mkcd
-# Defined here and not in a wrapper script in order to keep the
-# effect of 'cd' after the 'mkcd' command has finished.
 function mkcd
 {
   local dir="$*";
@@ -48,6 +30,32 @@ test -f "$HOME/.localConfig" && . $_
 
 # If not running interactively, exit from this script
 test -z "$PS1" && return
+
+###################################
+#                                 #
+#      Interactive-only part      #
+#                                 #
+###################################
+
+# Aliases
+alias ls='ls --color=auto'
+alias l='ls -l --group-directories-first --color=auto $*'
+alias la='ls -la --group-directories-first --color=auto $*'
+alias vi="vim"
+alias vimin="echo -n | vipe"
+alias s="git status"
+alias unstage="git reset -- ."
+
+function uncommit
+{
+    if [ "$(git rev-list --count origin/$(git branch --show-current)..HEAD)" -gt 0 ]; then
+        git reset HEAD~1 --soft
+    else
+        echo ERROR: there are no unpushed commits >&2
+        false
+    fi
+}
+export -f uncommit
 
 # Replace the current process with a tmux session
 # if not already in a tmux session
