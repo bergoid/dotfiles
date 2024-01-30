@@ -45,6 +45,9 @@ alias vi="vim"
 alias vimin="echo -n | vipe"
 alias s="git status"
 alias unstage="git reset -- ."
+#alias nvim="NVIM_APPNAME=nvim-vanilla nvim"
+alias nv-ks="NVIM_APPNAME=nvim-kickstart nvim"
+alias nv-lz="NVIM_APPNAME=nvim-lazyvim nvim"
 
 function uncommit
 {
@@ -102,8 +105,8 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 # fzf keybindings for bash
 if which fzf > /dev/null 2>&1; then
-    test -e /usr/share/fzf/key-bindings.bash && . $_
-    test -e /usr/share/fzf/completion.bash && . $_
+#     test -e /usr/share/fzf/key-bindings.bash && . $_
+#     test -e /usr/share/fzf/completion.bash && . $_
     # Preserve original history search
     bind '"\C-r": reverse-search-history'
 fi
