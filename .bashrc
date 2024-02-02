@@ -26,7 +26,7 @@ export EDITOR=vim
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 # Load local customization
-test -f "$HOME/.localConfig" && . $_
+test -f "$HOME/.bash.local" && . $_
 
 # If not running interactively, exit from this script
 test -z "$PS1" && return
