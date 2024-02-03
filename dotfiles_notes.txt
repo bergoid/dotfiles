@@ -1,0 +1,8 @@
+
+. rename ~/.localConfig to ~/.bash.local
+. create ~/.xinit.local with dwm customizations
+    . and source it from ~/.xinitrc
+
+v use existing font in existing st
+    v inconsolata
+    v firacode

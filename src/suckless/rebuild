@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#cp -u ~/.xinitrc xinitrc
+
+function build_module
+{
+    pushd "$1" && make clean install
+    popd
+}
+
+build_module dwm
+build_module dmenu
+build_module st
