@@ -1,0 +1,6 @@
+.vim/viminfo
+.vim/.netrwhist
+*.o
+src/suckless/dwm/dwm
+src/suckless/dmenu/dmenu
+src/suckless/st/st
