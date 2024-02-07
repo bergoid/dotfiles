@@ -3,7 +3,7 @@
 
 include config.mk
 
-SRC = drw.c dwm.c util.c ../mytweaks/env2str.c
+SRC = drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
 
 all: options dwm
@@ -15,7 +15,7 @@ options:
 	@echo "CC       = ${CC}"
 
 .c.o:
-	${CC} -c ${CFLAGS} $< -o $@
+	${CC} -c ${CFLAGS} $<
 
 ${OBJ}: config.h config.mk
 
