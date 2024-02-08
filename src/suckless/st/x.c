@@ -19,6 +19,7 @@ char *argv0;
 #include "arg.h"
 #include "st.h"
 #include "win.h"
+#include "env2str.h"
 
 /* types used in config.h */
 typedef struct {
@@ -2024,6 +2025,35 @@ usage(void)
 	    " [stty_args ...]\n", argv0, argv0);
 }
 
+void
+load_config_from_env(void)
+{
+    // Font
+    static char font_name[160];
+    copy_env_var(font_name, "LOCAL_DWM_FONT", DEFAULT_FONT, sizeof(font_name));
+    font = font_name;
+
+    // Foreground color
+    static char fg_color[8];
+    copy_env_var(fg_color, "LOCAL_DWM_FG_COLOR", DEFAULT_FG_COLOR, sizeof(fg_color));
+    colorname[258] = fg_color;
+
+    // Background color
+    static char bg_color[8];
+    copy_env_var(bg_color, "LOCAL_DWM_BG_COLOR", DEFAULT_BG_COLOR, sizeof(bg_color));
+    colorname[259] = bg_color;
+
+    // Cursor color
+    static char cursor_color[8];
+    copy_env_var(cursor_color, "LOCAL_DWM_CURSOR_COLOR", DEFAULT_CURSOR_COLOR, sizeof(cursor_color));
+    colorname[256] = cursor_color;
+
+    // Background color
+    static char rev_cursor_color[8];
+    copy_env_var(rev_cursor_color, "LOCAL_DWM_REV_CURSOR_COLOR", DEFAULT_REV_CURSOR_COLOR, sizeof(rev_cursor_color));
+    colorname[257] = rev_cursor_color;
+}
+
 int
 main(int argc, char *argv[])
 {
@@ -2082,6 +2112,7 @@ run:
 	if (!opt_title)
 		opt_title = (opt_line || !opt_cmd) ? "st" : opt_cmd[0];
 
+    load_config_from_env();
 	setlocale(LC_CTYPE, "");
 	XSetLocaleModifiers("");
 	cols = MAX(cols, 1);

@@ -4,7 +4,7 @@
 
 include config.mk
 
-SRC = st.c x.c
+SRC = st.c x.c ../mytweaks/env2str.c
 OBJ = $(SRC:.c=.o)
 
 all: options st
@@ -19,7 +19,7 @@ config.h:
 	cp config.def.h config.h
 
 .c.o:
-	$(CC) $(STCFLAGS) -c $<
+	$(CC) $(STCFLAGS) -c $< -o $@
 
 st.o: config.h st.h win.h
 x.o: arg.h config.h st.h win.h
