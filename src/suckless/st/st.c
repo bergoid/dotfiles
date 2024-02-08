@@ -1236,6 +1236,10 @@ kscrollup(const Arg* a)
 		n = term.histf - term.scr;
 		term.scr = term.histf;
 	}
+
+	if (sel.ob.x != -1 && !sel.alt)
+		selmove(n); /* negate change in term.scr */
+	tfulldirt();
 }
 
 void
