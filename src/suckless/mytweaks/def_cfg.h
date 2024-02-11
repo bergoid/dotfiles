@@ -9,7 +9,7 @@
 
 // The background color
 // Override with the environment variable LOCAL_DWM_BG_COLOR
-#define DEFAULT_BG_COLOR "#1C1C1C"
+#define DEFAULT_BG_COLOR "#101010"
 
 // The color of the cursor in 'st'
 // Override with the environment variable LOCAL_DWM_CURSOR_COLOR
