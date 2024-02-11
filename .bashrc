@@ -20,7 +20,7 @@ function which
 export -f which
 
 # Set editor command
-export EDITOR=vim
+export EDITOR=vim-x11
 
 # Python debugging
 export PYTHONBREAKPOINT="pudb.set_trace"
@@ -41,7 +41,8 @@ test -z "$PS1" && return
 alias ls='ls --color=auto'
 alias l='ls -l --group-directories-first --color=auto $*'
 alias la='ls -la --group-directories-first --color=auto $*'
-alias vi="vim"
+alias vi="vim-x11"
+alias vim="vim-x11"
 alias vimin="echo -n | vipe"
 alias s="git status"
 alias unstage="git reset -- ."
