@@ -2049,10 +2049,90 @@ load_config_from_env(void)
     copy_env_var(cursor_color, "LOCAL_DWM_CURSOR_COLOR", DEFAULT_CURSOR_COLOR, sizeof(cursor_color));
     colorname[256] = cursor_color;
 
-    // Background color
+    // Reverse cursor color
     static char rev_cursor_color[8];
     copy_env_var(rev_cursor_color, "LOCAL_DWM_REV_CURSOR_COLOR", DEFAULT_REV_CURSOR_COLOR, sizeof(rev_cursor_color));
     colorname[257] = rev_cursor_color;
+
+    // Color 00
+    static char color_00[8];
+    copy_env_var(color_00, "LOCAL_DWM_COLOR_00", DEFAULT_COLOR_00, sizeof(color_00));
+    colorname[0] = color_00;
+
+    // Color 01
+    static char color_01[8];
+    copy_env_var(color_01, "LOCAL_DWM_COLOR_01", DEFAULT_COLOR_01, sizeof(color_01));
+    colorname[1] = color_01;
+
+    // Color 02
+    static char color_02[8];
+    copy_env_var(color_02, "LOCAL_DWM_COLOR_02", DEFAULT_COLOR_02, sizeof(color_02));
+    colorname[2] = color_02;
+
+    // Color 03
+    static char color_03[8];
+    copy_env_var(color_03, "LOCAL_DWM_COLOR_03", DEFAULT_COLOR_03, sizeof(color_03));
+    colorname[3] = color_03;
+
+    // Color 04
+    static char color_04[8];
+    copy_env_var(color_04, "LOCAL_DWM_COLOR_04", DEFAULT_COLOR_04, sizeof(color_04));
+    colorname[4] = color_04;
+
+    // Color 05
+    static char color_05[8];
+    copy_env_var(color_05, "LOCAL_DWM_COLOR_05", DEFAULT_COLOR_05, sizeof(color_05));
+    colorname[5] = color_05;
+
+    // Color 06
+    static char color_06[8];
+    copy_env_var(color_06, "LOCAL_DWM_COLOR_06", DEFAULT_COLOR_06, sizeof(color_06));
+    colorname[6] = color_06;
+
+    // Color 07
+    static char color_07[8];
+    copy_env_var(color_07, "LOCAL_DWM_COLOR_07", DEFAULT_COLOR_07, sizeof(color_07));
+    colorname[7] = color_07;
+
+    // Color 08
+    static char color_08[8];
+    copy_env_var(color_08, "LOCAL_DWM_COLOR_08", DEFAULT_COLOR_08, sizeof(color_08));
+    colorname[8] = color_08;
+
+    // Color 09
+    static char color_09[8];
+    copy_env_var(color_09, "LOCAL_DWM_COLOR_09", DEFAULT_COLOR_09, sizeof(color_09));
+    colorname[9] = color_09;
+
+    // Color 10
+    static char color_10[8];
+    copy_env_var(color_10, "LOCAL_DWM_COLOR_10", DEFAULT_COLOR_10, sizeof(color_10));
+    colorname[10] = color_10;
+
+    // Color 11
+    static char color_11[8];
+    copy_env_var(color_11, "LOCAL_DWM_COLOR_11", DEFAULT_COLOR_11, sizeof(color_11));
+    colorname[11] = color_11;
+
+    // Color 12
+    static char color_12[8];
+    copy_env_var(color_12, "LOCAL_DWM_COLOR_12", DEFAULT_COLOR_12, sizeof(color_12));
+    colorname[12] = color_12;
+
+    // Color 13
+    static char color_13[8];
+    copy_env_var(color_13, "LOCAL_DWM_COLOR_13", DEFAULT_COLOR_13, sizeof(color_13));
+    colorname[13] = color_13;
+
+    // Color 14
+    static char color_14[8];
+    copy_env_var(color_14, "LOCAL_DWM_COLOR_14", DEFAULT_COLOR_14, sizeof(color_14));
+    colorname[14] = color_14;
+
+    // Color 15
+    static char color_15[8];
+    copy_env_var(color_15, "LOCAL_DWM_COLOR_15", DEFAULT_COLOR_15, sizeof(color_15));
+    colorname[15] = color_15;
 }
 
 int
