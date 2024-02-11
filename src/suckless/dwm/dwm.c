@@ -2225,8 +2225,9 @@ main(int argc, char *argv[])
 #endif /* __OpenBSD__ */
 	scan();
 
-    // Open a terminal at startup
+    // Open two terminals at startup
     Arg termArg = { .v = termcmd };
+    spawn(&termArg);
     spawn(&termArg);
 
 	run();
