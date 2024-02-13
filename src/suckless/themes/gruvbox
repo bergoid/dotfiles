@@ -1,4 +1,4 @@
-# gruvbox-dark
+# gruvbox dark
 export LOCAL_DWM_COLOR_00="#282828"
 export LOCAL_DWM_COLOR_01="#cc241d"
 export LOCAL_DWM_COLOR_02="#98971a"
