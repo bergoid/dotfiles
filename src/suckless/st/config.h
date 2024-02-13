@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-#include "def_cfg.h"
+#include "defaults.h"
 
 /*
  * appearance

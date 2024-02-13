@@ -3,7 +3,7 @@
 
 include config.mk
 
-SRC = drw.c dwm.c util.c ../mytweaks/env2str.c
+SRC = drw.c dwm.c util.c ../common/env2str.c
 OBJ = ${SRC:.c=.o}
 
 all: options dwm

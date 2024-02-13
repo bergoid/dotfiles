@@ -19,6 +19,7 @@ char *argv0;
 #include "arg.h"
 #include "st.h"
 #include "win.h"
+#include "defaults.h"
 #include "env2str.h"
 
 /* types used in config.h */

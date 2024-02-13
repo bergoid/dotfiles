@@ -20,11 +20,11 @@ FREETYPEINC = /usr/include/freetype2
 # OpenBSD (uncomment)
 #FREETYPEINC = ${X11INC}/freetype2
 
-# mytweaks
-MYTWEAKSINC = ../mytweaks
+# common
+COMMONINC = ../common
 
 # includes and libs
-INCS = -I${X11INC} -I${FREETYPEINC} -I${MYTWEAKSINC}
+INCS = -I${X11INC} -I${FREETYPEINC} -I${COMMONINC}
 LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
 
 # flags

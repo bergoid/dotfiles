@@ -43,7 +43,7 @@
 
 #include "drw.h"
 #include "util.h"
-#include "def_cfg.h"
+#include "defaults.h"
 #include "env2str.h"
 
 /* macros */

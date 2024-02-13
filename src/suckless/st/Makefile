@@ -4,7 +4,7 @@
 
 include config.mk
 
-SRC = st.c x.c ../mytweaks/env2str.c
+SRC = st.c x.c ../common/env2str.c
 OBJ = $(SRC:.c=.o)
 
 all: options st

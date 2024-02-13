@@ -4,7 +4,7 @@
 
 #include "env2str.h"
 
-void copy_string(char* dest, const char* src, size_t nmax)
+static void copy_string(char* dest, const char* src, size_t nmax)
 {
     strncpy(dest, src, nmax);
 

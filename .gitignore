@@ -3,4 +3,5 @@
 *.o
 src/suckless/dwm/dwm
 src/suckless/dmenu/dmenu
+src/suckless/dmenu/stest
 src/suckless/st/st

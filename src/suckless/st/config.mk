@@ -12,11 +12,11 @@ X11LIB = /usr/X11R6/lib
 
 PKG_CONFIG = pkg-config
 
-# mytweaks
-MYTWEAKSINC = ../mytweaks
+# common
+COMMONINC = ../common
 
 # includes and libs
-INCS = -I$(X11INC) -I${MYTWEAKSINC} \
+INCS = -I$(X11INC) -I${COMMONINC} \
        `$(PKG_CONFIG) --cflags fontconfig` \
        `$(PKG_CONFIG) --cflags freetype2`
 LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft \
