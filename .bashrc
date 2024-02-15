@@ -44,6 +44,7 @@ alias la='ls -la --group-directories-first --color=auto $*'
 alias vi="vim-x11"
 alias vim="vim-x11"
 alias vimin="echo -n | vipe"
+alias gtc="gtcommit"
 alias s="git status"
 alias unstage="git reset -- ."
 #alias nvim="NVIM_APPNAME=nvim-vanilla nvim"
