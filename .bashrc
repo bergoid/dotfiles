@@ -113,15 +113,13 @@ if which fzf > /dev/null 2>&1; then
     bind '"\C-r": reverse-search-history'
 fi
 
-# Keybinding: Ctrl-t cuts the current command line to the clipboard
-#
-# Didn't work. Maybe tmux/xclip issue?
-#
-# https://wiki.archlinux.org/index.php/Tmux#X_clipboard_integration
-# https://askubuntu.com/questions/705620/xclip-vs-xsel/898094#898094
-#
-#bind -x '"\C-t":"\C-e\C-u xclip -selection clipboard << EOF\n\C-y\nEOF\n"'
-#bind -x '"\C-t":echo hello'
+# Keybinding: Ctrl-y copies the current command line to the clipboard
+if [[ -n $DISPLAY ]]; then
+  copy_line_to_x_clipboard () {
+    printf %s "$READLINE_LINE" | xclip -selection CLIPBOARD
+  }
+  bind -x '"\C-y": copy_line_to_x_clipboard'
+fi
 
 # Customize the bash command prompt
 test -d "$HOME/tools/preppy/" && . preppy
