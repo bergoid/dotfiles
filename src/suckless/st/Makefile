@@ -4,7 +4,7 @@
 
 include config.mk
 
-SRC = st.c x.c ../common/env2str.c
+SRC = st.c x.c hb.c ../common/env2str.c
 OBJ = $(SRC:.c=.o)
 
 all: options st
@@ -22,7 +22,8 @@ config.h:
 	$(CC) $(STCFLAGS) -c $< -o $@
 
 st.o: config.h st.h win.h
-x.o: arg.h config.h st.h win.h
+x.o: arg.h config.h st.h win.h hb.h
+hb.o: st.h
 
 $(OBJ): config.h config.mk
 
