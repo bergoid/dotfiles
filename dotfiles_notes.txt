@@ -1,7 +1,9 @@
 
-. rename ~/.localConfig to ~/.bash.local
-. create ~/.xinit.local with dwm customizations
-    . and source it from ~/.xinitrc
+v dwm : add shortcut Alt+'=' to equalize size of windows
+
+v rename ~/.localConfig to ~/.bash.local
+v create ~/.xinit.local with dwm customizations
+    v and source it from ~/.xinitrc
 
 v use existing font in existing st
     v inconsolata
