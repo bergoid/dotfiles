@@ -47,9 +47,7 @@ alias vimin="echo -n | vipe"
 alias gtc="gtcommit"
 alias s="git status"
 alias unstage="git reset -- ."
-#alias nvim="NVIM_APPNAME=nvim-vanilla nvim"
-alias nv-ks="NVIM_APPNAME=nvim-kickstart nvim"
-alias nv-lz="NVIM_APPNAME=nvim-lazyvim nvim"
+alias nv="nvim"
 
 function uncommit
 {

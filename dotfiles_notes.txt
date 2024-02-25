@@ -1,3 +1,22 @@
+. Map function keys
+    v F12 / Ctrl-F12 / Alt-F12
+    . debugging keys
+    . F6/Shift-F6
+
+. do glon/flon work with nvim?
+
+. suckless: 
+    . dwm 'pertag' patch: different mfact value per tag
+    . more themes, see Gogh
+
+. preppy:
+    . move into dotfiles
+
+. install_dotfiles
+    . support subdirectories, e.g.: ~/.config/lazygit
+    . install for root user too
+
+v move lazyvim folders to nvim
 
 v dwm : add shortcut Alt+'=' to equalize size of windows
 
