@@ -41,13 +41,14 @@ test -z "$PS1" && return
 alias ls='ls --color=auto'
 alias l='ls -l --group-directories-first --color=auto $*'
 alias la='ls -la --group-directories-first --color=auto $*'
-alias vi="vim-x11"
+# alias vi="vim-x11"
+alias vi="nvim"
 alias vim="vim-x11"
 alias vimin="echo -n | vipe"
 alias gtc="gtcommit"
 alias s="git status"
 alias unstage="git reset -- ."
-alias nv="nvim"
+# alias nv="nvim"
 
 function uncommit
 {

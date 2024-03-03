@@ -1,9 +1,10 @@
-. Map function keys
-    v F12 / Ctrl-F12 / Alt-F12
-    . debugging keys
-    . F6/Shift-F6
+. install_dotfiles
+    . support subdirectories, e.g.: ~/.config/lazygit
+    . install for root user too
 
-. do glon/flon work with nvim?
+. neovim:
+    . set 'autowriteall' ?
+    . <leader>p: paste, but keep current clipboard contents
 
 . suckless: 
     . dwm 'pertag' patch: different mfact value per tag
@@ -12,9 +13,12 @@
 . preppy:
     . move into dotfiles
 
-. install_dotfiles
-    . support subdirectories, e.g.: ~/.config/lazygit
-    . install for root user too
+v Map function keys
+    v F12 / Ctrl-F12 / Alt-F12
+    v debugging keys
+    v F6/Shift-F6
+
+v do glon/flon work with nvim?
 
 v move lazyvim folders to nvim
 
