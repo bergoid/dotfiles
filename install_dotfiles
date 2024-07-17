@@ -1,35 +1,54 @@
 #!/bin/bash
 
-function randomString
-{
-    cat /dev/urandom | tr -dc 'a-z0-9' | fold -w $1 | head -n 1
+function randomString {
+	cat /dev/urandom | tr -dc 'a-z0-9' | fold -w $1 | head -n 1
 }
 
-function fileList
-{
-    cat << FILELIST
+function fileList {
+	cat <<FILELIST
 .bashrc
 .bash_profile
 .inputrc
 .tmux.conf
 .vim
 .xinitrc
+.config/lazygit
+.config/nvim
 FILELIST
 }
 
+function install_dotfiles {
+	userHome="$HOME"
 
-targetDir="$(dirname $(readlink -f "$0"))"
-oldDotFilesDir="$HOME/oldDotFiles_$(date +%Y%m%d%H%M%S)_$(randomString 3)"
+	##################################
+	# TODO remove
+	userHome="/home/me/dump/dotfiles_test"
+	##################################
 
-cd "$HOME"
+	targetDir="$(dirname $(readlink -f "$0"))"
+	oldDotFilesDir="$userHome/oldDotFiles_$(date +%Y%m%d%H%M%S)_$(randomString 3)"
 
-while read fileName; do
+	echo userHome == $userHome
+	echo targetDir == $targetDir
+	echo oldDotFilesDir == $oldDotFilesDir
+	# exit 0
 
-    if [ -e "$fileName" ]; then
-        mkdir -p "$oldDotFilesDir"
-        mv "$fileName" "$oldDotFilesDir"
-    fi
+	cd "$userHome"
+	if [ "$?" -ne 0 ]; then
+		exit 1
+	fi
 
-    ln -s "$targetDir/$fileName" "$fileName"
+	while read fileName; do
 
-done < <(fileList)
+		if [ -e "$fileName" ]; then
+			mkdir -p "$oldDotFilesDir"
+			mv "$fileName" "$oldDotFilesDir"
+		fi
+
+		# TODO : if $fileName has parent path: mkdir -p $parentPath
+		ln -s "$targetDir/$fileName" "$fileName"
+
+	done < <(fileList)
+}
+
+install_dotfiles

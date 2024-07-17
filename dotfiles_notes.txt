@@ -6,12 +6,12 @@
     . set 'autowriteall' ?
     . <leader>p: paste, but keep current clipboard contents
 
-. suckless: 
-    . dwm 'pertag' patch: different mfact value per tag
-    . more themes, see Gogh
-
 . preppy:
     . move into dotfiles
+
+v suckless: 
+    v dwm 'pertag' patch: different mfact value per tag
+    v more themes, see Gogh
 
 v Map function keys
     v F12 / Ctrl-F12 / Alt-F12
