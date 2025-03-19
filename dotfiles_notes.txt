@@ -9,6 +9,14 @@
 . preppy:
     . move into dotfiles
 
+. tmux:
+    . copy mode, copy to clipboard outside tmux:
+
+      # Copy and Paste on Linux
+      bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -i -f -selection primary | xclip -i -selection clipboard"
+      bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -selection clipboard -i"
+      set-option -s set-clipboard off/media/sf_pub
+
 v suckless: 
     v dwm 'pertag' patch: different mfact value per tag
     v more themes, see Gogh
